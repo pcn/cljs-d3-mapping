@@ -12,12 +12,7 @@
                  [cljsjs/topojson "1.6.18-0"]
                  [figwheel "0.2.5-SNAPSHOT"]
                  ]
-;;   ;; Use lein-git-deps https://github.com/tobyhede/lein-git-deps
-;;   ;; so I can use my fork until it's in good enough shape for public consumption
-;;   :dev-dependencies [[lein-git-deps "0.0.1-SNAPSHOT"]]
-;;   :git-dependencies [["https://github.com/pcn/packages.git"]]
-;;   :extra-classpath-dirs [".lein-git-deps/monger/src/"]
-;;   ;; End lein-git-deps work
+  :main map-brazil.core
   :ring {:handler map-brazil.core.handler/app}
   :profiles
   {:dev
@@ -65,5 +60,4 @@
 
    ;; to configure a different figwheel logfile path
    ;; :server-logfile "tmp/logs/figwheel-logfile.log"
-   }
-  :main map-brazil.core)
+   })
