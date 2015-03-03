@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<style>
+
+/* CSS goes here. */
+
+path {
+  stroke: white;
+  stroke-width: 0.25px;
+  fill: #ddc;
+}
+
+.counties.ANTAS{ fill: #cdc }
+
+</style>
+    <title>CLJS D3 Map of Brazil - figwheel paths</title>
+  </head>
+  <body>
+    <div class="app"></div>
+    <script src="/js/out/goog/base.js"></script>
+    <script src="/js/app.js"></script>
+    <script type="text/javascript">goog.require("map_brazil.core");</script>
+    <script>
+      map_brazil.core.main('static/topo/ba-counties.json', 'counties');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+/* CSS goes here. */
+
+path {
+  stroke: white;
+  stroke-width: 0.10px;
+  fill: black;
+}
+
+.counties.ANTAS{ fill: #cdc }
+
+</style>
+<body>
+<script src="/static/js/d3.v3.min.js"></script>
+<script src="/static/js/topojson.v1.min.js"></script>
+<script>
+
+var width = 1200,
+    height = 1200;
+
+var projection = d3.geo.mercator()
+    .scale(944)
+    .translate([600, 600]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("topo/ba-counties.json", function(error, ba) {
+  svg.append("path")
+      .datum(topojson.feature(ba, ba.objects.counties))
+      .attr("d", path);
+
+
+svg.selectAll(".counties")
+    .data(topojson.feature(uk, uk.objects.subunits).features)
+  .enter().append("path")
+    .attr("class", function(d) { return "counties " + d.id; })
+    .attr("d", path);
+
+});
+
+</script>
